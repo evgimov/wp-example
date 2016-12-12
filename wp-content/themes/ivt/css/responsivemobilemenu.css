@@ -1,0 +1,218 @@
+/*
+
+Responsive Mobile Menu v1.0
+Plugin URI: responsivemobilemenu.com
+
+Author: Sergio Vitov
+Author URI: http://xmacros.com
+
+License: CC BY 3.0 http://creativecommons.org/licenses/by/3.0/
+
+*/
+
+.rmm {
+	position: relative;
+	display: inline-block;
+	padding:0px;
+	line-height:19px !important;
+}
+.rmm * {
+	-webkit-tap-highlight-color:transparent !important;
+	font-family:Arial;
+}
+.rmm a {
+	color:#ebebeb;
+	text-decoration:none;
+}
+.rmm .rmm-main-list, .rmm .rmm-main-list li {
+	margin:0px;
+	padding:0px;
+}
+.rmm ul:not(.submenu ul) {
+	display: block;
+	width:auto !important;
+	margin:0 auto !important;
+	overflow:hidden;
+	list-style:none;
+}
+
+/*----- Bottom Level -----*/
+.rmm .rmm-main-list li:hover > .sub-menu {
+    z-index: 999;
+    opacity: 1;
+    left: 7.5em;
+}
+ /*--- DROPDOWN ---*/
+.rmm-main-list .sub-menu{
+    background:#fff; 
+    list-style:none;
+    position:absolute;
+    left:-9999px;  
+    overflow: hidden;
+    top: 100%;
+}
+.rmm-main-list ul li{
+    padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
+    float:none;
+}
+.rmm-main-list ul a{
+    white-space: pre-wrap; /* Stop text wrapping and creating multi-line dropdown items */
+}
+/*.rmm-main-list li:hover > ul{ 
+    position: relative;
+    left: 0;
+    top: 0;
+}*/
+.rmm-main-list li:hover a{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
+    background: #fff;
+    text-decoration:underline;
+}
+.rmm-main-list li:hover ul a{ /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effects. */
+    text-decoration:none;
+}
+.rmm-main-list li:hover ul li a:hover{ /* Here we define the most explicit hover states--what happens when you hover each individual link. */
+    /*background: #fff;*/
+}
+.rmm-main-list .sub-menu {
+    z-index: -1;
+    padding: 5px 0;
+}
+ 
+.sub-menu li {
+    font-size: 1em;
+    text-align: right;
+}
+ 
+.sub-menu li a:hover{
+	background: #fff;
+}
+    
+.rmm-main-list li > a:after {
+    color: #066b8f;
+    content: url('../img/dropdown.png');
+}
+
+.rmm-main-list li > a:only-child:after {
+    content: '';
+}
+.rmm-toggled {
+	display:none;
+	width:100%;
+	position:relative;
+	overflow:hidden;
+	margin:0 auto !important;
+}
+.rmm-button:hover {
+	cursor:pointer;
+}
+.rmm .rmm-toggled ul {
+	display:none;
+	margin:0px !important;
+	padding:0px !important;
+}
+.rmm .rmm-toggled ul li {
+	display:block;
+	margin:0 auto !important;
+}
+
+/* MINIMAL STYLE */
+
+#navigation {
+	float: left;
+	width: 60%;
+	height: 120px;
+	margin-left: 7em;
+}
+.rmm.minimal a {
+	color:#333333;
+}
+.rmm.minimal .rmm-main-list {
+	list-style: none;
+	padding-top: 55px;
+	width: 100%;
+
+}
+.rmm.minimal .rmm-main-list li{
+	/*float: left;*/
+	display: inline-block;
+	margin-left: 1.125em !important;
+}
+.rmm.minimal .rmm-main-list .sub-menu{
+	border: 1px solid #b3b3b3;
+}
+
+.rmm.minimal .rmm-main-list .sub-menu li{
+	display: block;
+	text-align: center;
+	max-width: 12em;
+	padding-right: 1em;
+}
+.rmm.minimal .rmm-main-list .sub-menu li a{
+	padding: 1em;
+	font-size: 1em;
+	display: block;
+	text-align: center;
+	color: #066b8f;
+	text-transform: none;
+	font-family: "ProximaNovaRegular"; 
+	border-bottom: 1px solid #b3b3b3;
+}
+.rmm.minimal .rmm-main-list li a{
+	text-decoration: none;
+	color: #4e4e4e;
+	text-transform: uppercase;
+	font-size: 1em;
+	font-family: "ProximaNovaRegular";
+	font-weight: 500;
+}
+.rmm.minimal .rmm-main-list li a:hover{
+	color: #fff;
+	background-color: #066b8f;
+}
+.rmm.minimal .rmm-toggled {
+	width:95%;
+	min-height:36px;
+}
+.rmm.minimal .rmm-toggled-controls {
+	display:block;
+	height:36px;
+	color:#333333;
+	text-align:left;
+	position:relative;
+}
+.rmm.minimal .rmm-toggled-title {
+	position:relative;
+	top:9px;
+	left:9px;
+	font-size:16px;
+	color:#33333;
+}
+.rmm.minimal .rmm-button {
+	display:block;
+	position:absolute;
+	right:9px;
+	top:7px;
+}
+
+.rmm.minimal .rmm-button span {
+	display:block;
+	margin:4px 0px 4px 0px;
+	height:2px;
+	background:#333333;
+	width:25px;
+}
+.rmm.minimal .rmm-toggled ul li a {
+	display:block;
+	width:100%;
+	text-align:center;
+	padding:10px 0px 10px 0px;
+	border-bottom:1px solid #dedede;
+	color:#333333;
+}
+.rmm.minimal .rmm-toggled ul li:first-child a {
+	border:1px solid #dedede;
+}
+.rmm.minimal .rmm-toggled .submenu li a {
+	/*background:#ccc;*/
+	text-align: right !important;
+}

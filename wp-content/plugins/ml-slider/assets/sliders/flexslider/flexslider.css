@@ -1,0 +1,177 @@
+/*
+ * jQuery FlexSlider v2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+
+
+/* Browser Resets */
+.ivt-slider .flex-container a:active,
+.ivt-slider .flexslider a:active,
+.ivt-slider .flex-container a:focus,
+.ivt-slider .flexslider a:focus  {outline: none;}
+.ivt-slider .slides,
+.ivt-slider .flex-control-nav,
+.ivt-slider .flex-direction-nav {margin: 0; padding: 0; list-style: none;}
+
+/* FlexSlider Necessary Styles
+*********************************/
+.ivt-slider .flexslider {margin: 0; padding: 0;}
+/*.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.ivt-slider .flexslider .slides img {width: 100%; display: block;}
+.ivt-slider .flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.ivt-slider .slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+.ivt-slider html[xmlns] .slides {display: block;}
+.ivt-slider * html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.ivt-slider .no-js .slides > li:first-child {display: block;}
+
+
+/* FlexSlider Default Theme
+*********************************/
+.ivt-slider .flexslider {background: #fff; border: 4px solid #fff; position: relative; -webkit-border-radius: 4px; -moz-border-radius: 4px; -o-border-radius: 4px; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,.2); -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2); -moz-box-shadow: 0 1px 4px rgba(0,0,0,.2); -o-box-shadow: 0 1px 4px rgba(0,0,0,.2); zoom: 1;}
+.ivt-slider .flex-viewport {max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; transition: all 1s ease;}
+.ivt-slider .loading .flex-viewport {max-height: 300px;}
+.ivt-slider .flexslider .slides {zoom: 1;}
+
+.ivt-slider .carousel li {margin-right: 5px}
+
+
+/* Direction Nav */
+.ivt-slider .flex-direction-nav {*height: 0;}
+.ivt-slider .flex-direction-nav a {width: 44px; height: 90px; margin: -20px 0 0; display: block; position: absolute; top: 50%; z-index: 10; cursor: pointer; text-indent: -9999px; opacity: 0; -webkit-transition: all .3s ease;}
+.ivt-slider .flex-direction-nav .flex-next {
+    background: url('slider-right.png') no-repeat 0 0;
+    top: 120px;
+    right: 0px;
+}
+.ivt-slider .flex-direction-nav .flex-prev {
+    background: url('slider-left.png') no-repeat 0 0;
+    top: 120px;
+    left: 0px;
+}
+.ivt-slider .flexslider:hover .flex-next {opacity: 0.8; }
+.ivt-slider .flexslider:hover .flex-prev {opacity: 0.8; }
+.ivt-slider .flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover {opacity: 1;}
+.ivt-slider .flex-direction-nav .flex-disabled {cursor: default; pointer-events: none;}
+
+/* Control Nav */
+.ivt-slider .flex-control-nav {
+    width: 90%;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    text-align: left;
+}
+
+.ivt-slider .flex-control-nav li {margin: 0 6px; display: inline-block; zoom: 1; *display: inline;}
+.ivt-slider .flex-control-paging li a {width: 23px; height: 23px; display: block;
+    background: url('slider-tmblr-inactive.png') no-repeat;
+    cursor: pointer; text-indent: -9999px; -webkit-border-radius: 20px; -moz-border-radius: 20px; -o-border-radius: 20px; border-radius: 20px; box-shadow: inset 0 0 3px rgba(0,0,0,0.3);}
+.ivt-slider .flex-control-paging li a.flex-active { background: url('slider-tmblr-active.png') no-repeat; cursor: default; }
+
+.ivt-slider .flex-control-thumbs {margin: 5px 0 0; position: static; overflow: hidden;}
+.ivt-slider .flex-control-thumbs li {}
+.ivt-slider .flex-control-thumbs img {margin: 10px 5px 0; display: inline-block; opacity: .7; cursor: pointer;}
+.ivt-slider .flex-control-thumbs img:hover {opacity: 1;}
+.ivt-slider .flex-control-thumbs .flex-active {opacity: 1; cursor: default;}
+
+@media screen and (max-width: 860px) {
+    .ivt-slider .flex-direction-nav .flex-prev {opacity: 1; left: 0;}
+    .ivt-slider .flex-direction-nav .flex-next {opacity: 1; right: 0;}
+}
+
+/** Custom Meta Slider CSS **/
+.ivt-slider .metaslider .flexslider {
+    background: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    border: 0;
+    margin: 0 0 40px 0;
+    max-width: none;
+    max-height: none;
+}
+
+.ivt-slider .flex-control-nav {
+    line-height: 11px;
+}
+
+/** move margin from list items to anchors */
+.ivt-slider .flex-control-nav li {
+    margin: 0;
+}
+
+.ivt-slider .flex-control-nav li a {
+    margin: 0 6px;
+    padding: 0;
+}
+
+.ivt-slider .flexslider .slides li {
+    position: relative;
+    height: auto;
+}
+
+/** fix for users with RTL languages */
+.ivt-slider .flex-viewport {
+    direction: ltr;
+}
+
+/** add transition effects to firefox **/
+.ivt-slider .flex-direction-nav a {
+    -moz-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.ivt-slider .flexslider .slides p {
+    margin: 0;
+}
+
+.ivt-slider .flex-control-nav {
+    margin-left: 550px;
+    margin-bottom: 15px;
+}
+
+.ivt-slider .metaslider .flexslider.filmstrip {
+    margin-top: 10px;
+}
+
+.ivt-slider .metaslider .flexslider.filmstrip .slides li {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.ivt-slider .metaslider .flexslider.filmstrip .slides li.flex-active-slide,
+.ivt-slider .metaslider .flexslider.filmstrip .slides li:hover,
+.ivt-slider .metaslider .flexslider.filmstrip .slides li:focus {
+    opacity: 1.0 !important;
+}
+
+.ivt-slider .metaslider .flex-control-thumbs li {
+    width: auto;
+}
+
+.ivt-slider .metaslider ol.flex-control-thumbs img,
+.ivt-slider #content .metaslider ol.flex-control-thumbs img {
+    margin: 10px 5px 0;
+    width: auto;
+}
+
+.ivt-slider .metaslider.nav-hidden .flexslider {
+    margin-bottom: 0;
+}
+
+.ivt-slider .metaslider.nav-hidden.add-margin .flexslider {
+    margin-bottom: 40px;
+}

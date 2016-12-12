@@ -1,0 +1,41 @@
+/*
+Default style for WP-PageNavi plugin
+
+http://wordpress.org/extend/plugins/wp-pagenavi/
+*/
+
+.wp-pagenavi {
+	clear: both;
+	height: 18px;
+}
+
+.wp-pagenavi a, .wp-pagenavi span {
+	text-decoration: none;
+
+	padding: 3px 7px;
+	margin-left: 1em;
+	font-family: "ProximaNovaRegular";
+	color: #006b90 !important;
+}
+
+.wp-pagenavi a:hover, .wp-pagenavi span.current {
+	/*border-color: #000;*/
+}
+
+.wp-pagenavi span.current {
+	font-weight: bold;
+	border-radius: 10px;
+	padding: 4px 10px;
+	background: #908200;
+	color: #fff !important;
+}
+.wp-pagenavi .previouspostslink {
+	background: url('/wp-content/themes/ivt/img/news-page-nav/pagination-left.png') no-repeat;
+	width: 30px !important;
+	height: 30px !important;
+}
+.wp-pagenavi .nextpostslink {
+	background: url('/wp-content/themes/ivt/img/news-page-nav/pagination-right.png') no-repeat;
+	width: 30px !important;
+	height: 30px !important;
+}
